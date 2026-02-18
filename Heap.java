@@ -75,12 +75,12 @@ private void siftDown(int index) {
     int leftC = arr[((2*index) + 1)];
     int rightC = arr[((2*index) + 2)];
 
-    if (arr[index] < leftC){
+    if (arr[index] < leftC && leftC > rightC){
         System.out.println("Delete Swapping " + arr[index] + " and " + leftC);
         arr[index] = leftC;
         arr[((2*index) + 1)] = parent;
         siftDown(((2*index) + 1));
-    } else if  (arr[index] < rightC){
+    } else if  (arr[index] < rightC && rightC > leftC){
         System.out.println("Delete Swapping " + arr[index] + " and " + rightC);
         arr[index] = rightC;
         arr[((2*index) + 2)] = parent;
@@ -95,7 +95,7 @@ private void siftDown(int index) {
 //4 points for syntax conventions.
 //main method to test your heap
  public static void main(String[] args){
-    int [] nums = {5, 3, 8, 1, 9,2};
+    int [] nums = {10, 6, 7, 1,2};
     Heap h = new Heap();
     for (int i = 0; i < nums.length; i++){
         h.add(nums[i]);
